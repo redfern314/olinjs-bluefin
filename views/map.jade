@@ -1,0 +1,11 @@
+extends layout
+
+block scripts
+  script(src="https://maps.googleapis.com/maps/api/js?key="+GOOGLE_KEY+"&sensor=false")
+  script(src="/javascripts/map.js")
+  link(rel='stylesheet', href='/stylesheets/map.css')
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div#map-canvas
