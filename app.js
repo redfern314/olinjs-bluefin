@@ -8,7 +8,8 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
-  , map = require('./routes/map');
+  , map = require('./routes/map')
+  , twitter = require('./routes/twitter');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/map', map.map);
+app.post('/tweets', twitter.twitterSearch)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

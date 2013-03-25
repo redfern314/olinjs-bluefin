@@ -3,7 +3,8 @@ extends layout
 block content
   h1= title
   p Trending venues in San Francisco:
-  ul
+  ul(id="mainList")
     each venue, i in trending
       li
-        | #{venue.name}
+        | #{venue.name} 
+        button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
