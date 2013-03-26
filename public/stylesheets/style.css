@@ -12,8 +12,8 @@ p.twitter-text {
 }
 
 #relevantTweets {
-  width: 600px;
-  height: 600px;
+  width: 480px;
+  height: 300px;
   overflow:scroll;
   border: 1px solid black;
 }
