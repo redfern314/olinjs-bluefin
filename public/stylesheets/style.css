@@ -3,7 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-p {
+a {
+  text-decoration: none;
+}
+
+p.twitter-text {
   margin: 0;
 }
 
@@ -21,7 +25,7 @@ p {
   border-bottom: 1px solid #e8e8e8;
 }
 
-.content: {
+.twitter-content {
   margin-left: 58px;
 }
 

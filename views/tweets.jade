@@ -1,6 +1,6 @@
 each tweet, i in tweets
   div(class="tweet")
-    div(class="content")
+    div(class="twitter-content")
       div(class="twitter-header")
         img(src="#{tweet.profile_image_url}", class="twitter-profpic")
         a(href="https://twitter.com/#{tweet.from_user}")
@@ -9,7 +9,7 @@ each tweet, i in tweets
           span(class="twitter-alias")
             | @#{tweet.from_user}
         small(class="twitter-time")
-          a(href="https://twitter.com/#{tweet.from_user}/#{tweet.id_str}")
-          | #{tweet.created_at}
+          a(href="https://twitter.com/#{tweet.from_user}/status/#{tweet.id_str}")
+            | #{tweet.created_at}
       p(class="twitter-text")
         | #{tweet.text}
