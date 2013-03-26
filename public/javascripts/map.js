@@ -38,17 +38,18 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
-      createMarker(results[i]);
+      createMarker(results[i],i+65);
     }
   }
 }
 
-function createMarker(place) {
+function createMarker(place,letter) {
   console.log(place);
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     title: place.name,
-    snippet: "lorem ipsum"
+    snippet: "lorem ipsum",
+    icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter_withshadow&chld="+String.fromCharCode(letter)+"%7Cff0000%7C000000"
   });
 }
