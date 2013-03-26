@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   p Trending venues in San Francisco:
+  div(id="relevantTweets")
   ul(id="mainList")
     each venue, i in trending
       li

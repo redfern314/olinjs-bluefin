@@ -34,7 +34,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/map', map.map);
-app.post('/tweets', twitter.twitterSearch)
+app.get('/tweets', twitter.twitterSearch)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

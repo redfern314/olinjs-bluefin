@@ -6,10 +6,11 @@ from users from a specific place.
 var request = require('request');
 
 exports.twitterSearch = function(req, res) {
-	console.log(req.body.query);
-	var twitterQuery = "https://search.twitter.com/search.json?q=" + req.body.query + "&geocode=37.7955,-122.3937,10mi&result_type=recent";
+	console.log(req.query.query);
+	var twitterQuery = "https://search.twitter.com/search.json?q=" + req.query.query + "&geocode=37.7955,-122.3937,10mi&result_type=recent";
     request({url: twitterQuery, json:true}, function(error, twitterResponse, twitterData){
-      res.send(packageTweets(twitterData));
+      console.log(twitterData)
+      res.render("tweets", {tweets: twitterData.results});
    	});
 }
 
