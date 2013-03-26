@@ -7,7 +7,7 @@ var request = require('request');
 
 exports.twitterSearch = function(req, res) {
 	console.log(req.body.query);
-	var twitterQuery = "https://search.twitter.com/search.json?result_type=recent&rpp=5&q=" + req.body.query;
+	var twitterQuery = "https://search.twitter.com/search.json?q=" + req.body.query + "&geocode=37.7955,-122.3937,10mi&result_type=recent";
     request({url: twitterQuery, json:true}, function(error, twitterResponse, twitterData){
       res.send(packageTweets(twitterData));
    	});
