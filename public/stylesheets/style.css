@@ -4,5 +4,60 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+p.twitter-text {
+  margin: 0;
+}
+
+#relevantTweets {
+  width: 480px;
+  height: 300px;
+  overflow:scroll;
+  border: 1px solid black;
+}
+
+.tweet {
+  position: relative;
+  min-height: 51px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.twitter-content {
+  margin-left: 58px;
+}
+
+.twitter-header {
+  color: #999;
+}
+
+.twitter-profpic {
+  display: inline-block;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.twitter-realname {
+  font-weight: bold;
+  color: #333;
+}
+
+.twitter-alias {
+  font-size: 12px;
+  color: #999;
+}
+
+.twitter-time {
+  position: relative;
+  float: right;
+  margin-top: 1px;
+  color: #bbb;
 }

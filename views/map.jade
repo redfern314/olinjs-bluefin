@@ -1,7 +1,7 @@
 extends layout
 
 block scripts
-  script(src="https://maps.googleapis.com/maps/api/js?key="+GOOGLE_KEY+"&sensor=false")
+  script(src="https://maps.googleapis.com/maps/api/js?key="+GOOGLE_KEY+"&libraries=places&sensor=false")
   script(src="/javascripts/map.js")
   link(rel='stylesheet', href='/stylesheets/map.css')
 
@@ -9,3 +9,14 @@ block content
   h1= title
   p Welcome to #{title}
   div#map-canvas
+  form(method='post',action='',id='newlist')
+    div
+        | Location (e.g. San Francisco):
+        input(name='location',id='location')
+    br
+    div
+        | Type of Venue (e.g. restaurants):
+        input(name='venue',id='venue')
+    br
+    button#submit
+        | Get Recommendations!

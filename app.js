@@ -5,7 +5,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path')
   , map = require('./routes/map')
@@ -32,9 +31,11 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/map', map.map);
+app.get('/tweets', twitter.twitterSearch)
+app.get('/embedded_timeline', twitter.embeddedTimeline)
 app.post('/tweets', twitter.twitterSearch)
+app.post('/getLocation',map.getLocation)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
