@@ -1,10 +1,56 @@
 extends layout
-
 block content
-  h1= title
-  p Trending venues in San Francisco:
-  ul(id="mainList")
-    each venue, i in trending
-      li
-        | #{venue.name} 
-        button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
+  .navbar.navbar-fixed-top
+      .navbar-inner
+          .container
+            a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.brand(href='../') Insider Opinion
+            #main-menu.nav-collapse.collapse
+              ul#main-menu-left.nav
+                li
+                  a(onclick='pageTracker._link(this.href); return false;', href='http://news.bootswatch.com') About
+                li
+                  a(onclick='pageTracker._link(this.href); return false;', href='http://news.bootswatch.com') News
+                li
+                  a(onclick='pageTracker._link(this.href); return false;', href='http://news.bootswatch.com') Contact
+              ul#main-menu-right.nav.pull-right
+                li
+                  a(rel='tooltip', target='_blank', href='http://builtwithbootstrap.com/', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'builtwithbootstrap\']);', data-original-title='Showcase of Bootstrap sites & apps')
+                    | Built With Bootstrap
+                    i.icon-share-alt
+                li
+                  a(rel='tooltip', target='_blank', href='https://wrapbootstrap.com/?ref=bsw', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'wrapbootstrap\']);', data-original-title='Marketplace for premium Bootstrap templates')
+                    | WrapBootstrap
+                    i.icon-share-alt
+
+  div(style="padding: 50px")
+    header.jumbotron.subhead
+      div.row
+        div.span6
+          h1 Insider Opinion.
+          p.lead Your place for getting the inside scoop on wherever you  go.
+        div.span6
+          p
+    div.content
+      div.row
+        div.span4
+          div.well
+            p map map maph3 
+        div.span4
+          div.well
+            h3 Trending Venues in San Francisco
+            ul(id="mainList")
+              each venue, i in trending
+                li
+                  | #{venue.name} 
+                  button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
+        div.span4
+          div.well
+            h3 Tweets
+            p tweets tweets
+
+
+
