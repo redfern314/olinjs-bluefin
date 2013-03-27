@@ -3,6 +3,8 @@
 var map;
 var service;
 var infowindow;
+var venue = "restaurant";
+var pins = [];
 
 var mapLocation;
 
@@ -17,7 +19,7 @@ function initialize() {
   var request = {
     location: mapLocation,
     radius: '5000',
-    query: 'restaurant'
+    query: venue
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -35,13 +37,14 @@ function findPlacesCallback(results, status) {
 }
 
 function findCoordinates(place,callback) {
+  clearMarkers();
   $.post("/getLocation",{place:place},function(data){
     mapLocation = new google.maps.LatLng(data.lat,data.lng);
     map.setOptions({center:mapLocation});
     var request = {
       location: mapLocation,
       radius: '5000',
-      query: 'restaurant'
+      query: venue
     };
 
     service = new google.maps.places.PlacesService(map);
@@ -60,6 +63,14 @@ function createMarker(place,letter) {
     snippet: "lorem ipsum",
     icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter_withshadow&chld="+letter+"%7Cff0000%7C000000"
   });
+  pins.push(marker);
+}
+
+function clearMarkers() {
+  for (var i = pins.length - 1; i >= 0; i--) {
+    pins[i].setMap(null);
+  };
+  pins = [];
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -67,9 +78,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
 //--------------JQuery code-----------------
 $(function() {
   $("#submit").on("click",function() {
+    venue = $("#venue").val();
     findCoordinates($("#location").val(),console.log);
     return false;
-  })
+  });
   $('#newlist').on("submit",function () {
     return false;
   });
