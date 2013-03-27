@@ -36,6 +36,8 @@ app.get('/users', user.list);
 app.get('/map', map.map);
 app.get('/tweets', twitter.twitterSearch)
 app.get('/embedded_timeline', twitter.embeddedTimeline)
+app.post('/tweets', twitter.twitterSearch)
+app.post('/getLocation',map.getLocation)
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
