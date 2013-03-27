@@ -32,7 +32,6 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 app.get('/map', map.map);
 app.get('/tweets', twitter.twitterSearch)
 app.get('/embedded_timeline', twitter.embeddedTimeline)
