@@ -10,6 +10,6 @@ each tweet, i in tweets
             | @#{tweet.from_user}
         small(class="twitter-time")
           a(href="https://twitter.com/#{tweet.from_user}/status/#{tweet.id_str}")
-            | #{tweet.created_at}
+            | ∞
       p(class="twitter-text")
         | #{tweet.text}
