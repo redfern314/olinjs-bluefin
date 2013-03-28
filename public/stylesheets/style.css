@@ -12,12 +12,6 @@ p.twitter-text {
   margin-left: 75px;
 }
 
-#relevantTweets {
-  width: 100%;
-  height: 600px;
-  overflow:scroll;
-}
-
 .tweet {
   position: relative;
   min-height: 51px;
@@ -92,10 +86,14 @@ p.twitter-text {
   left: 0;
  }
 
- .releventTweets  {
+ .relevantTweets  {
   width: 100%;
-  height: 500px;
+  height:  100%;
   overflow-y: scroll;
-  border: 1px solid black;
+  overflow-x: hidden;
   padding-right: 20px;
  }
+
+::-webkit-scrollbar { 
+    display: none; 
+}

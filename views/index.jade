@@ -41,12 +41,12 @@ block content
             h3 map map map
         div.span7
           div.well
+            h3(id="trend") Trending Venues  
             div.boxgrid.slideleft
               div.cover(style="background-color: #eee; z-index: 100; height: 100%; width: 100%; ")
-                h3 Trending Venues in San Francisco
                 ul(id="mainList")
-                each venue, i in trending
-                  li
-                    | #{venue.name} 
-                    button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
+                table.table.table-hover
+                  each venue, i in trending
+                    tr
+                      td(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") #{venue.name} 
               div.background.relevantTweets(id="relevantTweets")

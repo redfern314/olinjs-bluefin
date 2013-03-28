@@ -23,5 +23,8 @@ $(document).ready(function(){
 		$(".cover", this).stop().animate({left:'-600px'},{queue:false,duration:300})
 	});
 
+	$("#trend").click(function() {
+		$(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300})
+	})
 
 });
