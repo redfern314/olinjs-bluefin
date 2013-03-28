@@ -8,7 +8,8 @@ a {
 }
 
 p.twitter-text {
-  margin: 0;
+  margin-top: 15px;
+  margin-left: 75px;
 }
 
 #relevantTweets {
@@ -26,7 +27,8 @@ p.twitter-text {
 }
 
 .twitter-content {
-  margin-left: 58px;
+  margin-left: 0px;
+  width: 100%;
 }
 
 .twitter-header {
@@ -36,7 +38,7 @@ p.twitter-text {
 .twitter-profpic {
   display: inline-block;
   position: absolute;
-  top: 12px;
+  top: 5px;
   left: 12px;
   width: 48px;
   height: 48px;
@@ -48,6 +50,7 @@ p.twitter-text {
 .twitter-realname {
   font-weight: bold;
   color: #333;
+  margin-left:75px;
 }
 
 .twitter-alias {
@@ -60,4 +63,38 @@ p.twitter-text {
   float: right;
   margin-top: 1px;
   color: #bbb;
+  margin-right: 25px;
 }
+
+.boxgrid{
+  height: 500px;
+  margin:10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.boxgrid div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+ .captionfull .boxcaption {
+  top: 260;
+  left: 0;
+ }
+ .caption .boxcaption {
+  top: 220;
+  left: 0;
+ }
+
+ .releventTweets  {
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  padding-right: 20px;
+ }

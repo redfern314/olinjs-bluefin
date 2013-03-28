@@ -36,18 +36,18 @@ block content
           p
     div.content
       div.row
-        div.span4
+        div.span6(style="width: 600px")
           div.well
             h3 map map map
-        div.span4
+        div.span6(style="width: 600px")
           div.well
-            h3 Trending Venues in San Francisco
-            ul(id="mainList")
-              each venue, i in trending
-                li
-                  | #{venue.name} 
-                  button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
-        div.span4
-          div.well
-            h3 Tweets
-            div(id="relevantTweets")
+            div.boxgrid.slideleft
+              div.cover(style="background-color: #eee; z-index: 100; height: 100%; width: 100%; ")
+                h3 Trending Venues in San Francisco
+                ul(id="mainList")
+                each venue, i in trending
+                  li
+                    | #{venue.name} 
+                    button(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") see tweets!
+              div.background.relevantTweets(id="relevantTweets")
+                
