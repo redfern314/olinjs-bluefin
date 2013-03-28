@@ -23,6 +23,8 @@ p.twitter-text {
   min-height: 51px;
   padding: 9px 12px;
   border-bottom: 1px solid #e8e8e8;
+  height: 55px; 
+  position: relative;
 }
 
 .twitter-content {
