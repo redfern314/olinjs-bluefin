@@ -8,19 +8,7 @@ block content
     .navbar.navbar-fixed-top
         .navbar-inner
             .container
-              a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-              a.brand(href='../') Insider Opinion
-              #main-menu.nav-collapse.collapse
-                ul#main-menu-left.nav
-                  li
-                    a About
-                  li
-                    a News
-                  li
-                    a Contact
+                a.brand(style="margin-left: -148px") Insider Opinion
                 ul#main-menu-right.nav.pull-right
                   li
                     a(rel='tooltip', target='_blank', href='http://builtwithbootstrap.com/', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'builtwithbootstrap\']);', data-original-title='Showcase of Bootstrap sites & apps')
@@ -30,17 +18,17 @@ block content
                     a(rel='tooltip', target='_blank', href='https://wrapbootstrap.com/?ref=bsw', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'wrapbootstrap\']);', data-original-title='Marketplace for premium Bootstrap templates')
                       | WrapBootstrap
                       i.icon-share-alt
-    div.container
-      header.jumbotron.subhead(style="margin-top: 20px; margin-bottom: 30px")
+    div.container(style="width: 1200px")
+      header.jumbotron.subhead(style="margin-top: 70px; margin-bottom: 10px")
         div.row
-          div.span6
+          div.span10
             h1 Insider Opinion.
             p.lead Your place for getting the inside scoop on wherever you  go.
-          div.span6
+          div.span2
             p
       div.content
         div.row
-          div.span5
+          div.span5(style="width: 600px")
             div.well
               div#map-canvas
               form(method='post',action='',id='newlist')
