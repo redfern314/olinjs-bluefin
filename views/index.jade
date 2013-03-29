@@ -1,4 +1,8 @@
 extends layout
+block scripts
+  script(src="https://maps.googleapis.com/maps/api/js?key="+GOOGLE_KEY+"&libraries=places&sensor=false")
+  script(src="/javascripts/map.js")
+
 block content
   body.preview
     .navbar.navbar-fixed-top
@@ -39,7 +43,14 @@ block content
         div.row
           div.span5
             div.well
-              h3 map map map
+              div#map-canvas
+              form(method='post',action='',id='newlist')
+                div
+                  | Location (e.g. San Francisco):
+                  input(name='location',id='location')
+                br
+                button#submit
+                  | Get Recommendations!
           div.span7
-            div.well(id="venues")
+            div.well#venues
               include trending.jade

@@ -11,7 +11,7 @@ exports.index = function(req, res){
   request({url: foursquareQuery, json:true}, function(error, foursquareResponse, foursquareData){
   	  if (!error) {
         console.log(foursquareResponse.body.response.venues);
-   	  	res.render('index', {title: "Welcome to San Francisco!", city : "San Francisco", trending: foursquareResponse.body.response.venues});
+   	  	res.render('index', {title: "Welcome to San Francisco!", city : "San Francisco", trending: foursquareResponse.body.response.venues, GOOGLE_KEY: process.env.GOOGLE_KEY});
   	  }
   });
 };
