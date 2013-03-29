@@ -15,7 +15,7 @@ html {
 }
 
 #map-canvas {
-    min-height: 500px;
+    min-height: 450px;
 }
 
 #map-canvas img { 
@@ -127,4 +127,9 @@ p.twitter-text {
 
 ::-webkit-scrollbar { 
     display: none; 
+}
+
+#venues {
+  height: 500px;
+  overflow: scroll;
 }

@@ -28,16 +28,19 @@ block content
             p
       div.content
         div.row
-          div.span5(style="width: 600px")
-            div.well
+          div.span5(style="width: 600px; height: 500px")
+            div.well(style="max-height: 500px")
+              div
+                | Location (e.g. San Francisco): &nbsp
+                input(name='location',id='location', style="width: 175px")
+                &nbsp
+                button#submit(style="float:right")
+                  | Get Recommendations!
+              br
               div#map-canvas
               form(method='post',action='',id='newlist')
-                div
-                  | Location (e.g. San Francisco):
-                  input(name='location',id='location')
                 br
-                button#submit
-                  | Get Recommendations!
+
           div.span7
             div.well#venues
               include trending.jade
