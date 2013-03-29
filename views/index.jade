@@ -1,52 +1,45 @@
 extends layout
 block content
-  .navbar.navbar-fixed-top
-      .navbar-inner
-          .container
-            a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.brand(href='../') Insider Opinion
-            #main-menu.nav-collapse.collapse
-              ul#main-menu-left.nav
-                li
-                  a About
-                li
-                  a News
-                li
-                  a Contact
-              ul#main-menu-right.nav.pull-right
-                li
-                  a(rel='tooltip', target='_blank', href='http://builtwithbootstrap.com/', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'builtwithbootstrap\']);', data-original-title='Showcase of Bootstrap sites & apps')
-                    | Built With Bootstrap
-                    i.icon-share-alt
-                li
-                  a(rel='tooltip', target='_blank', href='https://wrapbootstrap.com/?ref=bsw', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'wrapbootstrap\']);', data-original-title='Marketplace for premium Bootstrap templates')
-                    | WrapBootstrap
-                    i.icon-share-alt
+  body.preview
+    .navbar.navbar-fixed-top
+        .navbar-inner
+            .container
+              a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.brand(href='../') Insider Opinion
+              #main-menu.nav-collapse.collapse
+                ul#main-menu-left.nav
+                  li
+                    a About
+                  li
+                    a News
+                  li
+                    a Contact
+                ul#main-menu-right.nav.pull-right
+                  li
+                    a(rel='tooltip', target='_blank', href='http://builtwithbootstrap.com/', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'builtwithbootstrap\']);', data-original-title='Showcase of Bootstrap sites & apps')
+                      | Built With Bootstrap
+                      i.icon-share-alt
+                  li
+                    a(rel='tooltip', target='_blank', href='https://wrapbootstrap.com/?ref=bsw', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'wrapbootstrap\']);', data-original-title='Marketplace for premium Bootstrap templates')
+                      | WrapBootstrap
+                      i.icon-share-alt
 
-  div(style="padding: 50px")
-    header.jumbotron.subhead
-      div.row
-        div.span6
-          h1 Insider Opinion.
-          p.lead Your place for getting the inside scoop on wherever you  go.
-        div.span6
-          p
-    div.content
-      div.row
-        div.span5
-          div.well
-            h3 map map map
-        div.span7
-          div.well
-            h3(id="trend") Trending Venues  
-            div.boxgrid.slideleft
-              div.cover(style="background-color: #eee; z-index: 100; height: 100%; width: 100%; ")
-                ul(id="mainList")
-                table.table.table-hover
-                  each venue, i in trending
-                    tr
-                      td(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") #{venue.name} 
-              div.background.relevantTweets(id="relevantTweets")
+    div.container
+      header.jumbotron.subhead(style="margin-top: 50px; margin-bottom: 50px")
+        div.row
+          div.span6
+            h1 Insider Opinion.
+            p.lead Your place for getting the inside scoop on wherever you  go.
+          div.span6
+            p
+      div.content
+        div.row
+          div.span5
+            div.well
+              h3 map map map
+          div.span7
+            div.well(id="venues")
+              include trending.jade
