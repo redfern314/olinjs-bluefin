@@ -28,8 +28,30 @@ function findVenues() {
     $.get("/renderVenueList",function(data){
       console.log(data);
       $("#venues").html(data);
+      $(".getTweetsButton").click(function() {
+        $(".cover").animate({left:'-600px'},{queue:false,duration:300})
+        twitterSearch($(this)); 
+      });
+      $(".getTweetsButton").click(function() {
+      $(".cover").animate({left:'-600px'},{queue:false,duration:300})
+        twitterSearch($(this)); 
+      });
+      $("#trend").click(function() {
+        $(".cover").animate({left:'0px'},{queue:false,duration:300})
+      })
     });
     google.maps.event.trigger(map, 'resize');
+  });
+}
+
+
+
+function twitterSearch(sender) {
+  var city  = sender.attr("data-city");
+  var venue = sender.attr("data-venue");
+  console.log("searched");
+  $.get("/tweets", {city : city, query : venue}, function(data, err) {
+    $('#relevantTweets').html(data);
   });
 }
 
@@ -76,4 +98,5 @@ $(function() {
   $('#newlist').on("submit",function () {
     return false;
   });
+
 })
