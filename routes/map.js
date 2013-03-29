@@ -16,8 +16,10 @@ exports.map = function(req, res){
 
 exports.getLocation = function(req, res) {
   place = req.body.place
+  req.session.city = place
   console.log('-----------------');
   console.log(place);
+  req.session.city = place;
   http.get("http://maps.googleapis.com/maps/api/geocode/json?address="+place+"&sensor=false", function(result) {
     result.setEncoding('utf8');
     var data = '';
@@ -41,8 +43,12 @@ exports.getVenues = function(req,res) {
   request({url: foursquareQuery, json:true}, function(error, foursquareResponse, foursquareData){
       if (!error) {
         console.log(foursquareResponse.body.response.venues);
+        req.session.trending = foursquareResponse.body.response.venues;
         res.send({trending: foursquareResponse.body.response.venues});
-        //res.render('index', {title: "Welcome to San Francisco!", city : "San Francisco", trending: foursquareResponse.body.response.venues});
       }
   });
+}
+
+exports.renderVenueList = function(req,res) {
+  res.render('trending',{trending:req.session.trending,city:req.session.city})
 }

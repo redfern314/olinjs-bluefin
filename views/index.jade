@@ -1,4 +1,8 @@
 extends layout
+block scripts
+  script(src="https://maps.googleapis.com/maps/api/js?key="+GOOGLE_KEY+"&libraries=places&sensor=false")
+  script(src="/javascripts/map.js")
+
 block content
   body.preview
     .navbar.navbar-fixed-top
@@ -26,9 +30,8 @@ block content
                     a(rel='tooltip', target='_blank', href='https://wrapbootstrap.com/?ref=bsw', title='', onclick='_gaq.push([\'_trackEvent\', \'click\', \'outbound\', \'wrapbootstrap\']);', data-original-title='Marketplace for premium Bootstrap templates')
                       | WrapBootstrap
                       i.icon-share-alt
-
-    div.container(style="width: 1120px")
-      header.jumbotron.subhead(style="margin-top: 30px; margin-bottom: 20px")
+    div.container
+      header.jumbotron.subhead(style="margin-top: 50px; margin-bottom: 50px")
         div.row
           div.span6
             h1 Insider Opinion.
@@ -39,7 +42,14 @@ block content
         div.row
           div.span5
             div.well
-              h3 map map map
+              div#map-canvas
+              form(method='post',action='',id='newlist')
+                div
+                  | Location (e.g. San Francisco):
+                  input(name='location',id='location')
+                br
+                button#submit
+                  | Get Recommendations!
           div.span7
-            div.well(id="venues")
+            div.well#venues
               include trending.jade
