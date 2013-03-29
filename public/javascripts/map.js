@@ -78,6 +78,12 @@ function createMarker(place,letter) {
     icon: "http://chart.apis.google.com/chart?chst=d_map_pin_letter_withshadow&chld="+letter+"%7Cff0000%7C000000"
   });
   pins.push(marker);
+  google.maps.event.addListener(marker, 'click', function() {
+    $.get("/tweets", {city : place.location.city, query : place.name}, function(data, err) {
+      $('#relevantTweets').html(data);
+      $(".cover").stop().animate({left:'-600px'},{queue:false,duration:300})
+    });
+  });
 }
 
 function clearMarkers() {
