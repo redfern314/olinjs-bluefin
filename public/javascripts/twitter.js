@@ -14,17 +14,12 @@ function twitterSearch(sender) {
 
 $(document).ready(function(){
 
-	// Horizontal Sliding
-	$('.boxgrid.slideleft').hover(function(){}, function() {
-		$(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300});
-	});
-
 	$('.boxgrid.slideleft').click(function(){
 		$(".cover", this).stop().animate({left:'-600px'},{queue:false,duration:300})
 	});
 
 	$("#trend").click(function() {
-		$(".cover", this).stop().animate({left:'0px'},{queue:false,duration:300})
+		$(".cover").animate({left:'0px'},{queue:false,duration:300})
 	})
 
 });
