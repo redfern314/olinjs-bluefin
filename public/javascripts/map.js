@@ -25,6 +25,9 @@ function findVenues() {
     for (var i = 0; i < data.trending.length; i++) {
       createMarker(data.trending[i],String.fromCharCode(i+65));
     }
+    $.get("/renderVenueList",function(data){
+      console.log(data)
+    });
     google.maps.event.trigger(map, 'resize');
   });
 }
