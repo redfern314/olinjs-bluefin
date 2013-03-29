@@ -30,6 +30,14 @@ a {
   text-decoration: none;
 }
 
+#map-canvas img { 
+  max-width: none;
+}
+
+#map-canvas label { 
+  width: auto; display:inline; 
+}
+
 p.twitter-text {
   margin-top: 15px;
   margin-left: 75px;
@@ -40,7 +48,7 @@ p.twitter-text {
   min-height: 51px;
   padding: 9px 12px;
   border-bottom: 1px solid #e8e8e8;
-  height: 55px; 
+  min-height: 100px; 
   position: relative;
 }
 
