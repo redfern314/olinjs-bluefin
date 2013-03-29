@@ -6,12 +6,9 @@ from users from a specific place.
 var request = require('request');
 
 exports.twitterSearch = function(req, res) {
-	console.log(req.query.query);
-	var twitterQuery = "https://search.twitter.com/search.json?q=" + req.query.query + "&geocode=37.7955,-122.3937,10mi&include_entities=true&result_type=recent";
+  var ll = req.session.location.lat.toString() + "," + req.session.location.lng.toString()
+	var twitterQuery = "https://search.twitter.com/search.json?q=" + req.query.query + "&geocode="+ll+",10mi&include_entities=true&result_type=recent";
     request({url: twitterQuery, json:true}, function(error, twitterResponse, twitterData){
-      //console.log(twitterData)
-      //var linkifiedTweets = twitterData.results.map(linkify_entities);
-      // console.log(linkifiedTweets);
       res.render("tweets", {tweets: twitterData.results});
    	});
 }
