@@ -32,11 +32,8 @@ function findVenues() {
         $(".cover").animate({left:'-600px'},{queue:false,duration:300})
         twitterSearch($(this)); 
       });
-      $(".getTweetsButton").click(function() {
-      $(".cover").animate({left:'-600px'},{queue:false,duration:300})
-        twitterSearch($(this)); 
-      });
       $("#trend").click(function() {
+        $('#trendHeader').html("Trending Venues");
         $(".cover").animate({left:'0px'},{queue:false,duration:300})
       })
     });
@@ -49,6 +46,7 @@ function findVenues() {
 function twitterSearch(sender) {
   var city  = sender.attr("data-city");
   var venue = sender.attr("data-venue");
+  $('#trendHeader').html(venue);
   console.log("searched");
   $.get("/tweets", {city : city, query : venue}, function(data, err) {
     $('#relevantTweets').html(data);
@@ -82,6 +80,7 @@ function createMarker(place,letter) {
     $.get("/tweets", {city : place.location.city, query : place.name}, function(data, err) {
       $('#relevantTweets').html(data);
       $(".cover").stop().animate({left:'-600px'},{queue:false,duration:300})
+      $("#trendHeader").html(place.name);
     });
   });
 }

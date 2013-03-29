@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
 	$("#trend").click(function() {
-		$(".cover").animate({left:'0px'},{queue:false,duration:300})
+		console.log('here');
+		$('#trendHeader').html("Trending Venues");
+		// $(".cover").animate({left:'0px'},{queue:false,duration:300})
 	})
 
 	$(".getTweetsButton").click(function() {
@@ -13,8 +15,10 @@ $(document).ready(function() {
 function twitterSearch(sender) {
 	var city  = sender.attr("data-city");
 	var venue = sender.attr("data-venue");
-	console.log("searched");
+	var backButton = '<a style="font-size: small; margin-left: 20px" id="trend"> back <a>'
 	$.get("/tweets", {city : city, query : venue}, function(data, err) {
 		$('#relevantTweets').html(data);
+		// $('#trendHeader').html(venue + backButton);
+		$('#trendHeader').html('yo');
 	});
 }
