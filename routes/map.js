@@ -19,6 +19,7 @@ exports.getLocation = function(req, res) {
   req.session.city = place
   console.log('-----------------');
   console.log(place);
+  req.session.city = place;
   http.get("http://maps.googleapis.com/maps/api/geocode/json?address="+place+"&sensor=false", function(result) {
     result.setEncoding('utf8');
     var data = '';
