@@ -9,5 +9,6 @@ div.boxgrid.slideleft
     table.table.table-hover
       each venue, i in trending
         tr
-          td(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}") #{venue.name} 
+          td(class="getTweetsButton", data-venue="#{venue.name}", data-city="#{city}")
+            | #{venue.name} 
   div.background.relevantTweets(id="relevantTweets")
